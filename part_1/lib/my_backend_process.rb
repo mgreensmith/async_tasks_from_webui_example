@@ -12,12 +12,12 @@ class MyBackendProcess
   end
 
   def run
-    change_status('run method invoked, initializing')
+    change_status('run method invoked')
     sleep 1
     change_status('doing a thing')
-    sleep 5
+    sleep 1
     change_status('doing a second thing')
-    sleep 5
+    sleep 1
     change_status('completed ALL THE THINGS!')
     sleep 1
     change_status('idle')

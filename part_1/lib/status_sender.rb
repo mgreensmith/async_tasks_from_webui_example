@@ -11,5 +11,4 @@ class StatusSender
   def send_status(message)
     publish("status_event", "#{Time.now} #{@class.class.name}: #{message}")
   end
-
 end

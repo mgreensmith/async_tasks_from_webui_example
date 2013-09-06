@@ -10,11 +10,6 @@ class StatusObserver
   end
 
   def status_event(*args)
-    stream_event(*args)
+    @server.settings.connections.each { |out| out << "event: #{args[0].to_s}\ndata: #{args[1]}\n\n" }
   end
-
-  private
-    def stream_event(*args)
-      @server.settings.connections.each { |out| out << "event: #{args[0].to_s}\ndata: #{args[1]}\n\n" }
-    end
 end
