@@ -1,4 +1,4 @@
-=== Setup
+===Setup
 
 1. `bundle install`
 2. Start the web server: `bundle exec rackup -s thin`
