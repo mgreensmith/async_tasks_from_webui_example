@@ -9,6 +9,7 @@ class StatusSender
   end
 
   def send_status(message)
+    puts "StatusSender publishing message from #{@class.class.name}: #{message}"
     publish("status_event", "#{Time.now} #{@class.class.name}: #{message}")
   end
 end
