@@ -8,6 +8,7 @@ class DemoServer < Sinatra::Base
   set :observer, StatusObserver.new(self)
   set :backend_process, MyBackendProcess.new
   set :connections, []
+  set :status_messages, []
 
   get '/stream', :provides => 'text/event-stream' do
     stream :keep_open do |out|
@@ -22,7 +23,7 @@ class DemoServer < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :index, :locals => { :status_messages => settings.status_messages }
   end
 
 end

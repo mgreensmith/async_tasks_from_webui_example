@@ -4,7 +4,7 @@
   </head>
   <body>
     <input type="button" id="btn_run" value="Run Backend Process"> 
-    <pre id='status_messages'></pre>
+    <pre id='status_messages'><%= settings.status_messages.join("\n") + "\n" %></pre>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="/js/local.js"></script>
