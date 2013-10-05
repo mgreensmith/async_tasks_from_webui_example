@@ -24,7 +24,7 @@ class DemoServer < Sinatra::Base
   end
 
   get '/' do
-    erb :index, :locals => { :status_messages => settings.status_messages }
+    erb :index
   end
 
 end

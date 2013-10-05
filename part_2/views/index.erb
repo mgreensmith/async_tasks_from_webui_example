@@ -3,7 +3,7 @@
     <title>Part 2: Status to Web</title>
   </head>
   <body>
-    <input type="button" id="btn_run" value="Run Backend Process"> 
+    <input type="button" id="btn_run" value="Run Backend Process" <%= settings.backend_process_state == "running" ? 'disabled="true"' : nil %>> 
     <pre id='status_messages'><%= settings.status_messages.join("\n") + "\n" %></pre>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
