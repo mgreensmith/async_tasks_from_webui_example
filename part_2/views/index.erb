@@ -2,14 +2,19 @@
   <head>
     <title>Part 2: Status to Web</title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
   </head>
   <body>
     <input type="button" id="btn_run" value="Run Backend Process" <%= settings.backend_process_state == "running" ? 'disabled="true"' : nil %>> 
-    <div id="progress_bar" style="max-width:500px;max-height:10px"></div>
+    <div id="progressbar" style="max-width:500px;max-height:10px"></div>
+    <script>
+      $( "#progressbar" ).progressbar({
+        value: <%= settings.backend_process_completion_percent %>
+      });
+    </script>
     <pre id='status_messages'><%= settings.status_messages.join("\n") + "\n" %></pre>
-
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script src="/js/local.js"></script>
   </body>
 <html>

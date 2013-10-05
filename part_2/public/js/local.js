@@ -8,9 +8,9 @@ $( document ).ready(function() {
     set_ui_state(e.data);
   }, false);
 
-  $( "#progress_bar" ).progressbar({
-  value: 0
-});
+  es.addEventListener('completion_percent_event', function(e) {
+    $( "#progressbar" ).progressbar( "value", parseInt(e.data) );
+  }, false);
 
 });
 

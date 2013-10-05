@@ -8,6 +8,7 @@ class StatusObserver
     @server = server
     subscribe "status_event", :status_event
     subscribe "state_change_event", :state_change_event
+    subscribe "completion_percent_event", :completion_percent_event
   end
 
   def status_event(*args)
@@ -19,6 +20,12 @@ class StatusObserver
   def state_change_event(*args)
     puts "StatusObserver received state_change_event: #{args[1]}"
     @server.settings.backend_process_state = args[1]
+    broadcast_event_to_connected_clients(*args)
+  end
+
+  def completion_percent_event(*args)
+    puts "StatusObserver received completion_percent_event: #{args[1]}"
+    @server.settings.backend_process_completion_percent = args[1]
     broadcast_event_to_connected_clients(*args)
   end
 

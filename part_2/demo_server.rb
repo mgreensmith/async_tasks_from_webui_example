@@ -10,6 +10,7 @@ class DemoServer < Sinatra::Base
   set :connections, []
   set :status_messages, []
   set :backend_process_state, 'idle'
+  set :backend_process_completion_percent, 0
 
   get '/stream', :provides => 'text/event-stream' do
     stream :keep_open do |out|

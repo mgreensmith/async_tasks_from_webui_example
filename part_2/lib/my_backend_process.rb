@@ -13,13 +13,17 @@ class MyBackendProcess
 
   def run
     change_state('running')
+    report_completion_percent 0
     report_status('run method invoked')
     sleep 1
     report_status('doing a thing')
+    report_completion_percent 33
     sleep 1
     report_status('doing a second thing')
+    report_completion_percent 66
     sleep 1
     report_status('completed ALL THE THINGS!')
+    report_completion_percent 100
     change_state('idle')
   end
 
@@ -32,5 +36,9 @@ class MyBackendProcess
 
     def report_status(new_status)
       @sender.send_status(new_status)
+    end
+
+    def report_completion_percent(new_percent)
+      @sender.send_completion_percent(new_percent)
     end
 end
