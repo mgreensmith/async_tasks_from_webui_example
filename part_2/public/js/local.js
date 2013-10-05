@@ -22,6 +22,7 @@ function set_ui_state(state) {
   switch (state) {
     case "running":
       $('#btn_run').prop("disabled", true);
+      $("#status_messages").html("");
       break;
     case "idle":
       $('#btn_run').prop("disabled", false);
