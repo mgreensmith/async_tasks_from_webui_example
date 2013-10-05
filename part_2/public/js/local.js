@@ -8,6 +8,10 @@ $( document ).ready(function() {
     set_ui_state(e.data);
   }, false);
 
+  $( "#progress_bar" ).progressbar({
+  value: 0
+});
+
 });
 
 $('#btn_run').click(function () {
