@@ -29,4 +29,3 @@ function set_ui_state(state) {
       break;
   }
 }
-
